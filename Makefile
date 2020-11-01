@@ -6,7 +6,7 @@
 #    By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 13:31:28 by snorthmo          #+#    #+#              #
-#    Updated: 2020/11/01 22:26:22 by snorthmo         ###   ########.fr        #
+#    Updated: 2020/11/01 23:49:39 by snorthmo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libasm.a
 
 SRCS = ft_strlen.s\
 		ft_strcpy.s\
-		ft_strcmp.s
+		ft_strcmp.s\
+		ft_write.s
 
 OBJS = $(SRCS:.s=.o)
 

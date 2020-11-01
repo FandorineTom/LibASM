@@ -6,19 +6,22 @@
 /*   By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 19:56:01 by snorthmo          #+#    #+#             */
-/*   Updated: 2020/11/01 22:32:39 by snorthmo         ###   ########.fr       */
+/*   Updated: 2020/11/01 23:56:33 by snorthmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 size_t	ft_strlen(char *str);
 char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
+ssize_t	ft_write(int fildes, const void *buf, size_t nbyte);
 
 int		main(void)
 {
+	int		fd;
 	char	*s1 = "normal string";
 	char	*s2 = "";
 	char	*s3 = "long long long long long long long long long long long long long\
@@ -62,5 +65,8 @@ int		main(void)
 	printf("      MY: comparison between 2 \x1B[33mempty\x1B[0m strings res: %d\n", ft_strcmp(s2, s2));
 	printf("ORIGINAL: comparison between 2 \x1B[33mempty\x1B[0m strings res: %d\n\n", strcmp(s2, s2));
 
+	printf("	\x1B[34mWRITE_TESTS\x1B[0m\n");
+	ft_write(1, "      MY: normal string\n", 24);
+	write(1, "ORIGINAL: normal string\n", 24);
 	return (0);
 }
