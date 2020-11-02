@@ -6,7 +6,7 @@
 #    By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 13:31:28 by snorthmo          #+#    #+#              #
-#    Updated: 2020/11/01 23:49:39 by snorthmo         ###   ########.fr        #
+#    Updated: 2020/11/02 12:10:09 by snorthmo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,21 @@ SRCS = ft_strlen.s\
 
 OBJS = $(SRCS:.s=.o)
 
+OBJDIR = ./objects/
+
+OBJ = $(addprefix $(OBJDIR), $(OBJS))
+
 CFLAGS = -Wall -Wextra -Werror
 ASM_FLAGS = -fmacho64
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-%.o: %.s
+$(OBJDIR)%.o: %.s
+	@test -d $(OBJDIR) || mkdir $(OBJDIR)
 	nasm $(ASM_FLAGS) $< -o $@
 
 test:
@@ -38,7 +43,8 @@ test_clean:
 	/bin/rm -f a.out
 
 clean:
-	/bin/rm -f $(OBJS)
+	/bin/rm -f $(OBJ)
+	/bin/rm -rf $(OBJDIR)
 
 fclean: clean
 	/bin/rm -f $(NAME)
