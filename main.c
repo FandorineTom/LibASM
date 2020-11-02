@@ -6,7 +6,7 @@
 /*   By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 19:56:01 by snorthmo          #+#    #+#             */
-/*   Updated: 2020/11/02 14:08:59 by snorthmo         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:22:33 by snorthmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,18 @@ int		main(void)
 	printf("ORIGINAL: comparison between 2 \x1B[33mempty\x1B[0m strings res: %d\n\n", strcmp(s2, s2));
 
 	printf("	\x1B[34mWRITE_TESTS\x1B[0m\n");
+	printf("\x1B[35mstdout tests\x1B[0m\n");
 	res = ft_write(1, "      MY: normal string\n", 24);
 	printf("	\x1B[33mreturn value\x1B[0m = %d\n", res);
 	res = write(1, "ORIGINAL: normal string\n", 24);
 	printf("	\x1B[33mreturn value\x1B[0m = %d\n\n", res);
+	printf("\x1B[35mwriting in fd\x1B[0m\n");
 	fd = open("test_file.txt", O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
 	res = ft_write(fd, "test string\n", 12);
 	printf("\x1B[33mreturn value\x1B[0m for normal fd = %d\n", res);
 	fd1 = open("wrong_file.txt", O_CREAT, S_IRUSR | S_IWUSR);
 	res = ft_write(fd1, "test string\n", 12);
-	printf("\x1B[33mreturn value\x1B[0m for wrong fd = %d\n", res);
-	printf("\terror code %d\n\n", errno);
+	printf("\x1B[33mreturn value\x1B[0m for wrong fd = %d and the error code is %d\n\n", res, errno);
 	printf("      MY: \x1B[33mstring with NULL\x1B[0m res: %zd and the error code is %d\n", ft_write(1, NULL, 2), errno);
 	printf("ORIGINAL: \x1B[33mstring with NULL\x1B[0m res: %zd and the error code is %d\n\n", write(1, NULL, 2), errno);
 	printf("      MY: \x1B[33mstring with NULL\x1B[0m res: %zd and the error code is %d\n", ft_write(fd1, NULL, 12), errno);
@@ -117,6 +118,6 @@ int		main(void)
 	printf("      MY: \x1B[33mempty\x1B[0m string res for strdup: |%s|\n", ft_strdup(s2));
 	printf("ORIGINAL: \x1B[33mempty\x1B[0m string res for strdup: |%s|\n\n", strdup(s2));
 	printf("      MY: \x1B[33mlong\x1B[0m string res for strdup: |%s|\n", ft_strdup(s5));
-	printf("ORIGINAL: \x1B[33mlong\x1B[0m string res for strdup: |%s|\n\n", strdup(s5));
+	printf("ORIGINAL: \x1B[33mlong\x1B[0m string res for strdup: |%s|\n", strdup(s5));
 	return (0);
 }
