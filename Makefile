@@ -6,7 +6,7 @@
 #    By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 13:31:28 by snorthmo          #+#    #+#              #
-#    Updated: 2020/11/02 13:48:41 by snorthmo         ###   ########.fr        #
+#    Updated: 2020/11/02 14:07:46 by snorthmo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRCS = ft_strlen.s\
 		ft_strcpy.s\
 		ft_strcmp.s\
 		ft_write.s\
-		ft_read.s
+		ft_read.s\
+		ft_strdup.s
 
 OBJS = $(SRCS:.s=.o)
 

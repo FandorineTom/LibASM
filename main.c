@@ -6,7 +6,7 @@
 /*   By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 19:56:01 by snorthmo          #+#    #+#             */
-/*   Updated: 2020/11/02 13:47:56 by snorthmo         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:08:59 by snorthmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 ssize_t	ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t	ft_read(int fildes, void *buf, size_t nbyte);
+char	*ft_strdup(const char *s1);
 
 
 int		main(void)
@@ -109,5 +110,13 @@ int		main(void)
 	printf("ORIGINAL: \x1B[33mfd that doesnt exist\x1B[0m: %zd and the error code is %d\n\n", read(6, buf1, 50), errno);
 	close(fd);
 	close(fd1);
+
+	printf("	\x1B[34mSTRDUP_TESTS\x1B[0m\n");
+	printf("      MY: \x1B[33mnormal\x1B[0m string res for strdup: |%s|\n", ft_strdup(s1));
+	printf("ORIGINAL: \x1B[33mnormal\x1B[0m string res for strdup: |%s|\n\n", strdup(s1));
+	printf("      MY: \x1B[33mempty\x1B[0m string res for strdup: |%s|\n", ft_strdup(s2));
+	printf("ORIGINAL: \x1B[33mempty\x1B[0m string res for strdup: |%s|\n\n", strdup(s2));
+	printf("      MY: \x1B[33mlong\x1B[0m string res for strdup: |%s|\n", ft_strdup(s5));
+	printf("ORIGINAL: \x1B[33mlong\x1B[0m string res for strdup: |%s|\n\n", strdup(s5));
 	return (0);
 }
