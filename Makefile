@@ -6,7 +6,7 @@
 #    By: snorthmo <snorthmo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/31 13:31:28 by snorthmo          #+#    #+#              #
-#    Updated: 2020/11/02 12:10:09 by snorthmo         ###   ########.fr        #
+#    Updated: 2020/11/02 13:48:41 by snorthmo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = libasm.a
 SRCS = ft_strlen.s\
 		ft_strcpy.s\
 		ft_strcmp.s\
-		ft_write.s
+		ft_write.s\
+		ft_read.s
 
 OBJS = $(SRCS:.s=.o)
 
@@ -45,6 +46,8 @@ test_clean:
 clean:
 	/bin/rm -f $(OBJ)
 	/bin/rm -rf $(OBJDIR)
+	/bin/rm -f test_file.txt
+	/bin/rm -f wrong_file.txt
 
 fclean: clean
 	/bin/rm -f $(NAME)
